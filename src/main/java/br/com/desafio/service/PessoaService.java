@@ -5,6 +5,7 @@ import br.com.desafio.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +31,7 @@ public class PessoaService implements IPessoaService {
     }
 
     @Override
-    public void addPessoa(String nome, String pessoaCol) {
+    public void addPessoa(String nome, Date dataNascimento, String cpf, boolean funcionario, String pessoaCol) {
         pessoaRepository.save(new Pessoa());
     }
 

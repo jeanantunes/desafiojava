@@ -18,6 +18,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -103,6 +104,11 @@ public class IndexController {
         if (result.hasErrors()) {
             return "index";
         } else if (projetos.getNome() == null) {
+            if(pessoaService.getPessoaList().isEmpty()){
+                ModelMap m = new ModelMap();
+                m.addAttribute("alerta", "Necessário salvar um funcionário, primeiro.");
+                return redirect(m);
+            }
             return "add-projetos";
         } else {
             Long lastId = Long.valueOf(projetosService.getProjetosList().size());
@@ -127,7 +133,14 @@ public class IndexController {
             Projetos projetosList = projetosService.getProjetosList().get(projetosService.getProjetosList().size() - 1);
             membros.setProjetosId(projetosList);
             //FIXME: Necessário ter Pessoa cadastrada com atribuição funcionário=true
-            membros.setPessoaId(pessoaService.getPessoaById(Cargo.FUNCIONARIO.getCargo()).get());
+            if(!pessoaService.getPessoaList().isEmpty()){
+                membros.setPessoaId(pessoaService.getPessoaById(Cargo.FUNCIONARIO.getCargo()).get());
+            }else{
+                ModelMap m = new ModelMap();
+                m.addAttribute("alerta", "Necessário salvar uma pessoa com atribudo funcionário = true");
+                return "redirect:/";
+            }
+
             membrosService.saveMembros(membros);
 
             return "redirect:/list-projetos";
@@ -151,7 +164,7 @@ public class IndexController {
     public String addPessoa(Pessoa pessoa, BindingResult result) {
 
         if (result.hasErrors()) {
-            return "index";
+            return "redirect:/index";
         } else if (pessoa.getNome() == null) {
             return "add-pessoa";
         } else {
@@ -173,4 +186,10 @@ public class IndexController {
         }
     }
 
+    @GetMapping("/redirect")
+    public String redirect(ModelMap model) {
+        String aux = "Necessário salvar um funcionário, primeiro.";
+        model.put("alerta", aux);
+        return "redirect:/list-pessoa";
+    }
 }

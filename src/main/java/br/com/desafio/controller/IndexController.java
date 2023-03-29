@@ -126,6 +126,7 @@ public class IndexController {
 
             Projetos projetosList = projetosService.getProjetosList().get(projetosService.getProjetosList().size() - 1);
             membros.setProjetosId(projetosList);
+            //FIXME: Necessário ter Pessoa cadastrada com atribuição funcionário=true
             membros.setPessoaId(pessoaService.getPessoaById(Cargo.FUNCIONARIO.getCargo()).get());
             membrosService.saveMembros(membros);
 

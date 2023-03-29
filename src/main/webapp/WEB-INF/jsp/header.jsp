@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Desafio Java</title>
+    <link rel="icon" type="image/x-icon" href="/static/image/favicon.ico">
 
     <link href="<c:url value="/static/node_modules/bootstrap/dist/css/bootstrap.min.css"/>"
           rel="stylesheet">
@@ -20,7 +21,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="http://localhost:8080">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

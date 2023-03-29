@@ -8,16 +8,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Desafio Java</title>
+    <link rel="icon" type="image/x-icon" href="/static/image/favicon.ico">
+
 
     <link href="<c:url value="/static/node_modules/bootstrap/dist/css/bootstrap.min.css"/>"
           rel="stylesheet">
 
 </head>
 <body>
+<style>
+    body {
+        background-image: url("/static/image/backgound-index.jpg");
+        background-color: #cccccc;
+        overflow: hidden;
+        position: relative;
+        opacity: 0.6;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -26,7 +44,7 @@
                     <a class="nav-link active" aria-current="page" href="/list-projetos">Projetos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/list-pessoa"  >Pessoas</a>
+                    <a class="nav-link active" aria-current="page" href="/list-pessoa">Pessoas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/membros">Membros</a>

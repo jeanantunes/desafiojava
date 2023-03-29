@@ -3,6 +3,7 @@ package br.com.desafio.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.desafio.model.Membros;
+import br.com.desafio.model.Pessoa;
 import br.com.desafio.model.Projetos;
 import br.com.desafio.service.IMembrosService;
 import br.com.desafio.service.IPessoaService;
@@ -138,4 +139,34 @@ public class IndexController {
         model.put("pessoa", pessoaService.getPessoaList());
         return "pessoa";
     }
+
+    @RequestMapping(value = "/delete-pessoa/{id}", method = RequestMethod.GET)
+    public String deletePessoa(@PathVariable("id") Long id) {
+        pessoaService.deletePessoa(id);
+        return "redirect:/list-pessoa";
+    }
+
+    @PostMapping(path = "/add-pessoa", consumes = "application/x-www-form-urlencoded")
+    public String addPessoa(Pessoa pessoa, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "index";
+        } else if (pessoa.getNome() == null) {
+            return "add-pessoa";
+        } else {
+            Long lastPessoaId = Long.valueOf(pessoaService.getPessoaList().size());
+            if (lastPessoaId != 0) {
+                Pessoa pessoaId = pessoaService.getPessoaList().get(pessoaService.getPessoaList().size() - 1);
+                pessoa.setId(pessoaId.getId() + 1);
+            } else {
+                pessoa.setId(lastPessoaId.longValue());
+            }
+            pessoa.setPessoaCol(String.valueOf(pessoa.getId()));
+            pessoaService.savePessoa(pessoa);
+
+            return "redirect:/list-pessoa";
+
+        }
+    }
+
 }

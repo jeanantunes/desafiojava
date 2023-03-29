@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ include file="header.jsp" %>
 
 <!DOCTYPE html>
 <html lang="pt_br">
@@ -16,61 +17,40 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/list-projetos">Projetos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/list-pessoa"  >Pessoas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/membros">Membros</a>
-                </li>
-
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
+<div class="p-2 text-center bg-light">
+    <h4 class="mb-1">Lista</h4>
+</div>
+<div>
+<!--
+    <form method="post" action="/add-pessoa">
+        <input type="submit" class="btn btn-primary btn-md text" value="NOVO PESSOA">
+    </form>
+-->
+</div>
 
 <div class="container">
-    <div>
-        <a type="button" class="btn btn-primary btn-md" href="/add-pessoa">NOVO PESSOA</a>
+    <div class="text-left" style="margin:5px 5px 5px 5px;">
     </div>
     <br>
     <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3>Lista de Pessoa</h3>
-        </div>
         <div class="panel-body">
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th width="20%">ID</th>
                     <th width="60%">Nome</th>
-                    <th width="20%">ID_GERENTE</th>
-
-                    <th width="20%"></th>
+                    <!--<th width="20%"></th>-->
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${pessoa}" var="pessoa">
                     <tr>
-                        <td width="60%">${pessoa.nome}</td>
                         <td width="20%">${pessoa.pessoaCol}</td>
-                        <td width="20%"><a type="button" class="btn btn-success"
-                                           href="/update-pessoa?id=${pessoa}">Atualizar</a>
+                        <td width="80%">${pessoa.nome}</td>
+                        <!--<td width="20%"><a type="button" class="btn btn-success"
+                                           href="/update-pessoa/${pessoa.id}">Atualizar</a>
                             <a type="button" class="btn btn-warning"
-                               href="/delete-pessoa?id=${pessoa}">Excluir</a></td>
+                               href="/delete-pessoa/${pessoa.id}">Excluir</a></td>-->
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -79,3 +59,6 @@
     </div>
 
 </div>
+<%@ include file="footer.jsp" %>
+</body>
+</html>

@@ -8,11 +8,11 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name="PROJETOS")
+@Table(name = "PROJETOS")
 public class Projetos {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 

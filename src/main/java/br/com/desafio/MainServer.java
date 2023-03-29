@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration;
 
 @SpringBootApplication(exclude = SqlInitializationAutoConfiguration.class)
-public class MainServer  {
+public class MainServer {
 
-	public static void main( String[] args )    {
+    public static void main(String[] args) {
         SpringApplication.run(MainServer.class, args);
     }
 

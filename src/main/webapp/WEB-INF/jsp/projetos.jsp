@@ -44,12 +44,12 @@
                 <thead>
                 <tr>
                     <th width="10%">Nome</th>
-                    <th width="10%">Data Início</th>
-                    <th width="15%">Data Previsão Fim</th>
+                    <th width="10%">Data In&#237;cio</th>
+                    <th width="15%">Data Previs&#227;o Fim</th>
                     <th width="10%">Data Fim</th>
-                    <th width="10%">Descrição</th>
+                    <th width="10%">Descri&#231;&#227;o</th>
                     <th width="10%">Status</th>
-                    <th width="10%">Orçamento</th>
+                    <th width="10%">Or&#231;amento</th>
                     <th width="10%">Risco</th>
 
 
@@ -81,5 +81,6 @@
         </div>
     </div>
 </div>
+<%@ include file="footer.jsp"%>
 </body>
 </html>

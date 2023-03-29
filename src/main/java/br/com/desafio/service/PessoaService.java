@@ -13,6 +13,7 @@ public class PessoaService implements IPessoaService {
 
     @Autowired
     private PessoaRepository pessoaRepository;
+
     @Override
     public List<Pessoa> getPessoaList() {
         return pessoaRepository.findAll();
@@ -36,7 +37,7 @@ public class PessoaService implements IPessoaService {
     @Override
     public void deletePessoa(Long id) {
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
-        if(pessoa.isPresent()){
+        if (pessoa.isPresent()) {
             pessoaRepository.delete(pessoa.get());
         }
     }

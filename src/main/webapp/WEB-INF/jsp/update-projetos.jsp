@@ -3,14 +3,6 @@
 <%@ include file="header.jsp"%>
 <html>
 <head>
-    <script>
-        $(document).ready(function(){
-            $('#dataInicio').mask('00/00/0000');
-            $('#dataPrevisaoFim').mask('00/00/0000');
-            $('#dataFim').mask('00/00/0000');
-            $('#orcamento').mask('^\$\d{1,3}(,\d{3})*(\.\d+)?$');
-        });
-    </script>
 </head>
 <body>
 <div class="p-2 text-center bg-light">
@@ -19,45 +11,49 @@
 <form:form action="/save/${id}">
     <input type="hidden" name="_method" value="PUT">
     <input type="hidden" path="id" name="id" id="id" value="${id}">
-    <div class="form-row">
+    <div class="form-row needs-validation">
     <div class="form-group">
         <label for="nome">Nome:</label>
-        <input type="text" path="nome" name="nome" class="form-control" id="nome" placeholder="Nome" value="${nome}">
+        <input type="text" path="nome" name="nome" class="form-control" id="nome" placeholder="Nome" value="${nome}" required/>
     </div>
 
     <div class="form-group" col-md-4>
-        <label for="dataInicio">Data Início</label>
+        <label for="dataInicio">Data In&#237;cio</label>
         <input type="text" path="dataInicio" name="dataInicio" class="form-control" id="dataInicio" placeholder="00/00/0000"
-               value = "<fmt:formatDate value="${dataInicio}" pattern="dd/MM/yyyy" />"/>
+               placeholder="dd/MM/yyyy" pattern="^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$"
+               value = "<fmt:formatDate value="${dataInicio}" />" required/>
+
     </div>
     <div class="form-group" col-md-4>
-        <label for="dataPrevisaoFim">Data Previsão Fim</label>
+        <label for="dataPrevisaoFim">Data Previs&#227;o Fim</label>
         <input type="text" path="dataPrevisaoFim" name="dataPrevisaoFim" class="form-control" id="dataPrevisaoFim" placeholder="00/00/0000"
-               value = "<fmt:formatDate value="${dataPrevisaoFim}" pattern="dd/MM/yyyy" />"/>
+               placeholder="dd/MM/yyyy" pattern="^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$"
+               value = "<fmt:formatDate value="${dataPrevisaoFim}" pattern="dd/MM/yyyy" />" required />
     </div>
     <div class="form-group" col-md-4>
         <label for="dataFim">Data Fim</label>
         <input type="text" path="dataFim" name="dataFim" class="form-control" id="dataFim" placeholder="00/00/0000"
-               value = "<fmt:formatDate value="${dataFim}" pattern="dd/MM/yyyy" />"/>
+               placeholder="dd/MM/yyyy" pattern="^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$"
+               value = "<fmt:formatDate value="${dataFim}" pattern="dd/MM/yyyy" />" required/>
     </div>
 
     <div class="form-group">
-        <label for="descricao">Descrição:</label>
-        <textarea type="textarea" maxlength="5000" path="descricao" name="descricao" class="form-control" id="descricao" placeholder="Descrição">
+        <label for="descricao">Descri&#231;&#227;o:</label>
+        <textarea type="textarea" maxlength="5000" path="descricao" name="descricao" class="form-control" id="descricao" placeholder="Descri&#231;&#227;o" required>
             ${descricao}
         </textarea>
     </div>
     <div class="form-group">
         <label for="status">Status:</label>
-        <input type="text" path="status" name="status" class="form-control" id="status" placeholder="Status" value="${status}">
+        <input type="text" path="status" name="status" class="form-control" id="status" placeholder="Status" value="${status}" required />
     </div>
     <div class="form-group">
-        <label for="orcamento">Orçamento:</label>
-        <input type="number" path="orcamento" name="orcamento" class="form-control" id="orcamento" placeholder="R$" value="${orcamento}" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" min="0.00">
+        <label for="orcamento">Or&#231;amento:</label>
+        <input type="number" path="orcamento" name="orcamento" class="form-control" id="orcamento" placeholder="R$" value="${orcamento}" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" min="0.00" required />
     </div>
     <div class="form-group">
         <label for="risco">Risco:</label>
-        <input type="text" path="risco" name="risco" class="form-control" id="risco" placeholder="Risco" value="${risco}">
+        <input type="text" path="risco" name="risco" class="form-control" id="risco" placeholder="Risco" value="${risco}" required />
     </div>
     </div>
     <div class="text-center" style="margin:5px 5px 5px 5px;">

@@ -20,6 +20,4 @@ public interface IProjetosService {
     void deleteProjetos(Long id);
 
     Projetos saveProjetos(Projetos projetos);
-
-    void saveNewProjeto(Projetos projetos);
 }

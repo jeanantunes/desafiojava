@@ -15,6 +15,7 @@ public class MembrosService implements IMembrosService {
 
     @Autowired
     private MembrosRepository membrosRepository;
+
     @Override
     public List<Membros> getMembrosList() {
         return membrosRepository.findAll();
@@ -38,7 +39,7 @@ public class MembrosService implements IMembrosService {
     @Override
     public void deleteMembros(Long id) {
         Optional<Membros> membros = membrosRepository.findById(id);
-        if(membros.isPresent()){
+        if (membros.isPresent()) {
             membrosRepository.delete(membros.get());
         }
     }

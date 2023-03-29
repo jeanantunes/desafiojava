@@ -15,6 +15,7 @@ public class ProjetosService implements IProjetosService {
 
     @Autowired
     private ProjetosRepository projetosRepository;
+
     @Override
     public List<Projetos> getProjetosList() {
         return projetosRepository.findAll();
@@ -38,7 +39,7 @@ public class ProjetosService implements IProjetosService {
     @Override
     public void deleteProjetos(Long id) {
         Optional<Projetos> projetos = projetosRepository.findById(id);
-        if(projetos.isPresent()){
+        if (projetos.isPresent()) {
             projetosRepository.delete(projetos.get());
         }
     }
@@ -47,10 +48,5 @@ public class ProjetosService implements IProjetosService {
     public Projetos saveProjetos(Projetos projetos) {
         projetosRepository.save(projetos);
         return projetos;
-    }
-
-    @Override
-    public void saveNewProjeto(Projetos projetos) {
-        projetosRepository.save(projetos);
     }
 }

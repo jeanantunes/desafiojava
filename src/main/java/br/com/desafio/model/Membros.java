@@ -6,19 +6,19 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name="MEMBROS")
+@Table(name = "MEMBROS")
 public class Membros {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "projetos_id", foreignKey=@ForeignKey(name = "fk_membros_projetos_idx"))
+    @JoinColumn(name = "projetos_id", foreignKey = @ForeignKey(name = "fk_membros_projetos_idx"))
     private Projetos projetosId;
 
     @ManyToOne
-    @JoinColumn(name = "pessoa_id", foreignKey=@ForeignKey(name = "fk_membros_pessoa1_idx"))
+    @JoinColumn(name = "pessoa_id", foreignKey = @ForeignKey(name = "fk_membros_pessoa1_idx"))
     private Pessoa pessoaId;
 }

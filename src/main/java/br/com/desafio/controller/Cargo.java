@@ -6,11 +6,11 @@ public enum Cargo {
 
     private Long cargo;
 
-    Cargo(Long cargo){
+    Cargo(Long cargo) {
         this.cargo = cargo;
     }
 
-    public Long getCargo(){
+    public Long getCargo() {
         return cargo;
     }
 }

@@ -16,7 +16,7 @@
 </style>
 <div class="footer">
     <div>
-        <span>Copyright © 2023 Desafio Java| - Todos os direitos reservados.</span>
+        <span>Copyright &#174; 2023 Desafio Java | - Todos os direitos reservados.</span>
     </div>
 </div>
 </body>

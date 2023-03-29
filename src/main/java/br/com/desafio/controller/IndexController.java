@@ -161,6 +161,9 @@ public class IndexController {
             } else {
                 pessoa.setId(lastPessoaId.longValue());
             }
+            pessoa.setNome(pessoa.getNome());
+            pessoa.setDataNascimento(pessoa.getDataNascimento());
+            pessoa.setCpf(pessoa.getCpf());
             pessoa.setPessoaCol(String.valueOf(pessoa.getId()));
             pessoaService.savePessoa(pessoa);
 

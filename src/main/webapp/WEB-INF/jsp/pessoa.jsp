@@ -21,11 +21,9 @@
     <h4 class="mb-1">Lista</h4>
 </div>
 <div>
-<!--
     <form method="post" action="/add-pessoa">
         <input type="submit" class="btn btn-primary btn-md text" value="NOVO PESSOA">
     </form>
--->
 </div>
 
 <div class="container">
@@ -37,16 +35,23 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th width="20%">ID</th>
-                    <th width="60%">Nome</th>
+                    <th width="10%">ID</th>
+                    <th width="30%">Nome</th>
+                    <th width="20%">Data Nascimento</th>
+                    <th width="20%">Cpf</th>
+                    <th width="10%">Funcionario</th>
                     <!--<th width="20%"></th>-->
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${pessoa}" var="pessoa">
                     <tr>
-                        <td width="20%">${pessoa.pessoaCol}</td>
-                        <td width="80%">${pessoa.nome}</td>
+                        <td width="10%">${pessoa.pessoaCol}</td>
+                        <td width="30%">${pessoa.nome}</td>
+                        <td width="20%"><fmt:formatDate value="${pessoa.dataNascimento}"
+                                                        pattern="dd/MM/yyyy"/></td>
+                        <td width="20%">${pessoa.cpf}</td>
+                        <td width="10%">${pessoa.funcionario}</td>
                         <!--<td width="20%"><a type="button" class="btn btn-success"
                                            href="/update-pessoa/${pessoa.id}">Atualizar</a>
                             <a type="button" class="btn btn-warning"

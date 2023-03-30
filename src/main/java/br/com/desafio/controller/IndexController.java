@@ -106,7 +106,7 @@ public class IndexController {
         } else if (projetos.getNome() == null) {
             if(pessoaService.getPessoaList().isEmpty()){
                 ModelMap m = new ModelMap();
-                m.addAttribute("alerta", "Necessário salvar um funcionário, primeiro.");
+                m.put("alerta", "Necessário salvar um funcionário, primeiro.");
                 return redirect(m);
             }
             return "add-projetos";
@@ -188,8 +188,7 @@ public class IndexController {
 
     @GetMapping("/redirect")
     public String redirect(ModelMap model) {
-        String aux = "Necessário salvar um funcionário, primeiro.";
-        model.put("alerta", aux);
-        return "redirect:/list-pessoa";
+        model.put("alerta", "Necessário salvar um funcionário, primeiro.");
+        return showPessoa(model);
     }
 }

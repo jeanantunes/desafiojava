@@ -4,7 +4,6 @@ import br.com.desafio.model.Pessoa;
 import br.com.desafio.model.Projetos;
 import br.com.desafio.repository.PessoaRepository;
 import br.com.desafio.repository.ProjetosRepository;
-import br.com.desafio.service.IProjetosService;
 import br.com.desafio.service.PessoaService;
 import br.com.desafio.service.ProjetosService;
 import org.junit.jupiter.api.AfterEach;
@@ -14,20 +13,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.*;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class IndexControllerTest {
@@ -257,7 +248,7 @@ class IndexControllerTest {
         p2.setFuncionario(true);
         p2.setPessoaCol("2L");
 
-        pessoaService.addPessoa(p1.getNome(),p1.getDataNascimento(), p1.getCpf(), p1.getFuncionario(), p1.getPessoaCol());
+        pessoaService.addPessoa(p1.getNome(), p1.getDataNascimento(), p1.getCpf(), p1.getFuncionario(), p1.getPessoaCol());
 
         when(pessoaRepository.findById(1L)).thenReturn(Optional.of(p1));
 

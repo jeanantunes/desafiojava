@@ -10,7 +10,6 @@
 <div class="p-2 text-center bg-light">
     <h4 class="mb-1">Novo Cargo</h4>
 </div>
-<div id="alerta" name="alerta" path="alerta">${alerta}</div>
 <form:form action="/add-pessoa">
     <input type="hidden" name="_method" value="PUT">
     <input type="hidden" path="id" name="id" id="id" value="${lastPessoaId}">

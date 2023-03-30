@@ -25,7 +25,7 @@
         <input type="submit" class="btn btn-primary btn-md text" value="NOVO PESSOA">
     </form>
 </div>
-
+<div><c:out value="${alerta.text}" ></c:out></div>
 <div class="container">
     <div class="text-left" style="margin:5px 5px 5px 5px;">
     </div>

@@ -254,4 +254,41 @@ class IndexControllerTest {
 
         assertThat(pessoaRepository.findById(1L)).isNotEmpty();
     }
+
+    @Test
+    void deletePessoa() {
+        Pessoa p1 = new Pessoa();
+        p1.setId(1L);
+        p1.setNome("Nome Pessoa");
+        p1.setDataNascimento(new Date());
+        p1.setCpf("123.456.789-09");
+        p1.setFuncionario(true);
+        p1.setPessoaCol("1L");
+
+        List<Pessoa> pessoaList = new ArrayList<>();
+        pessoaList.addAll(Arrays.asList(p1));
+
+        pessoaRepository.deleteById(1L);
+
+        pessoaList = pessoaRepository.findAll();
+        assertThat(pessoaList.size()).isEqualTo(0);
+    }
+
+    @Test
+    void savePessoa() {
+        Pessoa p1 = new Pessoa();
+        p1.setId(1L);
+        p1.setNome("Nome Pessoa");
+        p1.setDataNascimento(new Date());
+        p1.setCpf("123.456.789-09");
+        p1.setFuncionario(true);
+        p1.setPessoaCol("1L");
+
+        List<Pessoa> pessoaList = new ArrayList<>();
+        pessoaList.addAll(Arrays.asList(p1));
+
+        pessoaRepository.save(p1);
+
+        assertThat(pessoaList.size()).isEqualTo(1);
+    }
 }

@@ -1,7 +1,5 @@
 package br.com.desafio.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import br.com.desafio.model.Membros;
 import br.com.desafio.model.Pessoa;
 import br.com.desafio.model.Projetos;
@@ -18,8 +16,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -104,7 +102,7 @@ public class IndexController {
         if (result.hasErrors()) {
             return "index";
         } else if (projetos.getNome() == null) {
-            if(pessoaService.getPessoaList().isEmpty()){
+            if (pessoaService.getPessoaList().isEmpty()) {
                 ModelMap m = new ModelMap();
                 m.put("alerta", "Necessário salvar um funcionário, primeiro.");
                 return redirect(m);
@@ -133,9 +131,9 @@ public class IndexController {
             Projetos projetosList = projetosService.getProjetosList().get(projetosService.getProjetosList().size() - 1);
             membros.setProjetosId(projetosList);
             //FIXME: Necessário ter Pessoa cadastrada com atribuição funcionário=true
-            if(!pessoaService.getPessoaList().isEmpty()){
+            if (!pessoaService.getPessoaList().isEmpty()) {
                 membros.setPessoaId(pessoaService.getPessoaById(Cargo.FUNCIONARIO.getCargo()).get());
-            }else{
+            } else {
                 ModelMap m = new ModelMap();
                 m.addAttribute("alerta", "Necessário salvar uma pessoa com atribudo funcionário = true");
                 return "redirect:/";
